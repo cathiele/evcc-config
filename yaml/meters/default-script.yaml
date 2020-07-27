@@ -1,0 +1,7 @@
+type: default
+name: Generisch (Script)
+sample: |
+  power:
+    type: script # use script
+    cmd: /bin/sh -c "echo 0" # actual command
+    timeout: 3s # kill script after 3 seconds

@@ -1,0 +1,4 @@
+type: simpleevse # Charger with Phoenix Contact controller
+name: Simple EVSE (USB)
+sample: |
+  device: /dev/usb1 # RS485 ModBus device

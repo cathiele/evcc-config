@@ -1,0 +1,21 @@
+language: go
+go_import_path: github.com/andig/evcc-config
+
+cache:
+  directories:
+  - $HOME/.cache/go-build
+  - $HOME/gopath/pkg/mod
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+
+env:
+  global:
+  - PATH=$HOME/gopath/bin:$PATH
+
+script:
+- make
+# ensure all changes are committed
+- test -z "$(git status --porcelain)" || (git status; git diff; false)

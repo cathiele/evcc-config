@@ -1,0 +1,10 @@
+type: default # Configurable charger
+name: Generisch (Script)
+sample: |
+  title: Mein Auto # name
+  capacity: 50 # kWh
+  charge:
+    type: script # use script
+    cmd: /bin/sh -c "echo 50" # actual command
+    timeout: 3s # kill script after 3 seconds
+  cache: 5m # cache duration

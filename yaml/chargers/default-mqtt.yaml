@@ -1,0 +1,15 @@
+type: default # Configurable charger
+name: Generisch (MQTT)
+sample: |
+  status: # charger status A..F
+    type: mqtt
+    topic: some/topic1
+  enabled: # charger enabled state (true/false or 0/1)
+    type: mqtt
+    topic: some/topic2
+  enable: # set charger enabled state
+    type: script
+    cmd: /bin/sh -c "echo ${enable}"
+  maxcurrent: # set charger max current
+    type: script
+    cmd: /bin/sh -c "echo ${maxcurrent}"

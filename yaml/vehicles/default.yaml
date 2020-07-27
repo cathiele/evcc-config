@@ -1,0 +1,9 @@
+type: default # Configurable charger
+name: Generisch
+sample: |
+  title: Mein Auto # name
+  capacity: 50 # kWh
+  charge:
+    type: ...
+    # ...
+  cache: 5m # cache duration

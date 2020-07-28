@@ -34,12 +34,13 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - [Mobile Charger Connect](#charger-6)
 - [NRGKick Bluetooth](#charger-7)
 - [NRGKick Connect](#charger-8)
-- [Phoenix EMCP Controller (Ethernet/Modbus TCP)](#charger-9)
-- [Phoenix EVCC Controller (Modbus)](#charger-10)
-- [Simple EVSE (Ethernet/Modbus TCP)](#charger-11)
-- [Simple EVSE (USB)](#charger-12)
-- [Wallbe (Eco, Pro)](#charger-13)
-- [Wallbe (pre 2019)](#charger-14)
+- [OpenWB (remote-controlled using MQTT)](#charger-9)
+- [Phoenix EMCP Controller (Ethernet/Modbus TCP)](#charger-10)
+- [Phoenix EVCC Controller (Modbus)](#charger-11)
+- [Simple EVSE (Ethernet/Modbus TCP)](#charger-12)
+- [Simple EVSE (USB)](#charger-13)
+- [Wallbe (Eco, Pro)](#charger-14)
+- [Wallbe (pre 2019)](#charger-15)
 
 ## Vehicles
 
@@ -373,6 +374,35 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ```
 
 <a id="charger-9"></a>
+#### OpenWB (remote-controlled using MQTT)
+
+```yaml
+- type: default
+  status:
+    # with openWB, charging status (A..F) this is split between "plugged" and "charging"
+    # the openwb plugin combines both into status (charging=C, plugged=B, otherwise=A)
+    type: openwb # use openwb plugin
+    plugged:
+      type: mqtt
+      topic: openWB/lp/1/boolPlugStat
+    charging:
+      type: mqtt
+      topic: openWB/lp/1/boolChargeStat
+  enabled:
+    type: mqtt
+    topic: openWB/lp/1/ChargePointEnabled
+    timeout: 30s
+  enable:
+    type: mqtt
+    topic: openWB/set/lp1/ChargePointEnabled
+    payload: ${enable:%d} # write payload definition
+  maxcurrent:
+    type: mqtt
+    topic: openWB/set/lp1/DirectChargeAmps
+    payload: ${maxCurrent:%d} # write payload definition
+```
+
+<a id="charger-10"></a>
 #### Phoenix EMCP Controller (Ethernet/Modbus TCP)
 
 ```yaml
@@ -381,7 +411,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   id: 1
 ```
 
-<a id="charger-10"></a>
+<a id="charger-11"></a>
 #### Phoenix EVCC Controller (Modbus)
 
 ```yaml
@@ -392,7 +422,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   id: 1 # slave id
 ```
 
-<a id="charger-11"></a>
+<a id="charger-12"></a>
 #### Simple EVSE (Ethernet/Modbus TCP)
 
 ```yaml
@@ -400,7 +430,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   uri: 192.168.0.8:502 # TCP ModBus address
 ```
 
-<a id="charger-12"></a>
+<a id="charger-13"></a>
 #### Simple EVSE (USB)
 
 ```yaml
@@ -408,7 +438,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   device: /dev/usb1 # RS485 ModBus device
 ```
 
-<a id="charger-13"></a>
+<a id="charger-14"></a>
 #### Wallbe (Eco, Pro)
 
 ```yaml
@@ -416,7 +446,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   uri: 192.168.0.8:502 # TCP ModBus address
 ```
 
-<a id="charger-14"></a>
+<a id="charger-15"></a>
 #### Wallbe (pre 2019)
 
 ```yaml

@@ -6,40 +6,46 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ## Meters
 
-- E3DC Batterie
-- Generisch (MQTT)
-- Generisch (Script)
-- Modbus
-- Modbus (RTU)
-- SMA Home Manager 2.0 / SMA Energy Meter 30
+- [E3DC Batterie](#meter-0)
+- [Generisch (MQTT)](#meter-1)
+- [Generisch (Script)](#meter-2)
+- [Modbus](#meter-3)
+- [Modbus (RTU)](#meter-4)
+- [SMA Home Manager 2.0 / SMA Energy Meter 30](#meter-5)
 
 ## Chargers
 
-- EVSE Wifi
-- Generisch
-- Generisch (MQTT)
-- go-eCharger (Cloud)
-- go-eCharger (Lokal)
-- KEBA Connect
-- Mobile Charger Connect
-- NRGKick Bluetooth
-- NRGKick Connect
-- Phoenix EMCP Controller (Ethernet/Modbus TCP)
-- Phoenix EVCC Controller (Modbus)
-- Simple EVSE (Ethernet/Modbus TCP)
-- Simple EVSE (USB)
-- Wallbe (Eco, Pro)
-- Wallbe (pre 2019)
+- [EVSE Wifi](#charger-0)
+- [Generisch](#charger-1)
+- [Generisch (MQTT)](#charger-2)
+- [go-eCharger (Cloud)](#charger-3)
+- [go-eCharger (Lokal)](#charger-4)
+- [KEBA Connect](#charger-5)
+- [Mobile Charger Connect](#charger-6)
+- [NRGKick Bluetooth](#charger-7)
+- [NRGKick Connect](#charger-8)
+- [Phoenix EMCP Controller (Ethernet/Modbus TCP)](#charger-9)
+- [Phoenix EVCC Controller (Modbus)](#charger-10)
+- [Simple EVSE (Ethernet/Modbus TCP)](#charger-11)
+- [Simple EVSE (USB)](#charger-12)
+- [Wallbe (Eco, Pro)](#charger-13)
+- [Wallbe (pre 2019)](#charger-14)
+
+## Vehicles
+
+- [Generisch](#vehicle-0)
+- [Generisch (Script)](#vehicle-1)
 
 ## Details
 
 ### Meters
 
 
+<a id="meter-0"></a>
 #### E3DC Batterie
 
 ```yaml
-- type: meter
+- type: default
   power:
     type: modbus
     uri: e3dc.fritz.box:502
@@ -51,30 +57,33 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     scale: -1 # reverse direction
 ```
 
+<a id="meter-1"></a>
 #### Generisch (MQTT)
 
 ```yaml
-- type: meter
+- type: default
   power: # power reading
     type: mqtt # use mqtt
     topic: mbmd/sdm1-1/Power # mqtt topic
     timeout: 10s # don't use older values
 ```
 
+<a id="meter-2"></a>
 #### Generisch (Script)
 
 ```yaml
-- type: meter
+- type: default
   power:
     type: script # use script
     cmd: /bin/sh -c "echo 0" # actual command
     timeout: 3s # kill script after 3 seconds
 ```
 
+<a id="meter-3"></a>
 #### Modbus
 
 ```yaml
-- type: meter
+- type: modbus
   model: sdm
   uri: rs485.fritz.box:23
   rtu: true # rs485 device connected using ethernet adapter
@@ -83,10 +92,11 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   energy: Sum # default values, optionally override
 ```
 
+<a id="meter-4"></a>
 #### Modbus (RTU)
 
 ```yaml
-- type: meter
+- type: modbus
   model: sdm
   uri: rs485.fritz.box:23
   rtu: true # rs485 device connected using ethernet adapter
@@ -95,10 +105,11 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   energy: Sum # default values, optionally override
 ```
 
+<a id="meter-5"></a>
 #### SMA Home Manager 2.0 / SMA Energy Meter 30
 
 ```yaml
-- type: meter
+- type: sma
   serial: 1234567890 # Serial number of the device
 ```
 
@@ -106,17 +117,19 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ### Chargers
 
 
+<a id="charger-0"></a>
 #### EVSE Wifi
 
 ```yaml
-- type: charger
+- type: evsewifi
   uri: http://192.168.1.4 # SimpleEVSE-Wifi address
 ```
 
+<a id="charger-1"></a>
 #### Generisch
 
 ```yaml
-- type: charger
+- type: default
   status: # charger status A..F
     type: ...
     # ...
@@ -131,10 +144,11 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     # ...
 ```
 
+<a id="charger-2"></a>
 #### Generisch (MQTT)
 
 ```yaml
-- type: charger
+- type: default
   status: # charger status A..F
     type: mqtt
     topic: some/topic1
@@ -149,99 +163,142 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     cmd: /bin/sh -c "echo ${maxcurrent}"
 ```
 
+<a id="charger-3"></a>
 #### go-eCharger (Cloud)
 
 ```yaml
-- type: charger
+- type: go-e
   token: 4711c # or go-e cloud API token
   cache: 10s # go-e cloud API cache duration
 ```
 
+<a id="charger-4"></a>
 #### go-eCharger (Lokal)
 
 ```yaml
-- type: charger
+- type: go-e
   uri: http://192.168.1.4 # either go-e local address
 ```
 
+<a id="charger-5"></a>
 #### KEBA Connect
 
 ```yaml
-- type: charger
+- type: keba
   uri: 192.168.1.4:7090 # KEBA address
   rfid:
     tag: 765765348 # RFID tag, see `evcc charger` to show tag
 ```
 
+<a id="charger-6"></a>
 #### Mobile Charger Connect
 
 ```yaml
-- type: charger
+- type: mcc
   uri: https://192.168.1.4 # Mobile Charger Connect address
   password: # home user password
 ```
 
+<a id="charger-7"></a>
 #### NRGKick Bluetooth
 
 ```yaml
-- type: charger
+- type: nrgkick-bluetooth
   macaddress: 00:99:22 # MAC address
   pin: # pin
 ```
 
+<a id="charger-8"></a>
 #### NRGKick Connect
 
 ```yaml
-- type: charger
+- type: nrgkick-connect
   ip: 192.168.1.4 # IP
   macaddress: 00:99:22 # MAC address
   password: # password
 ```
 
+<a id="charger-9"></a>
 #### Phoenix EMCP Controller (Ethernet/Modbus TCP)
 
 ```yaml
-- type: charger
-  uri: 192.168.0.8:502 # ModBus address
+- type: phoenix-emcp
+  uri: 192.168.0.8:502 # TCP ModBus address
   id: 1
 ```
 
+<a id="charger-10"></a>
 #### Phoenix EVCC Controller (Modbus)
 
 ```yaml
-- type: charger
+- type: phoenix-evcc
   device: /dev/ttyUSB0
   baudrate: 9600
   comset: 8N1
   id: 1 # slave id
 ```
 
+<a id="charger-11"></a>
 #### Simple EVSE (Ethernet/Modbus TCP)
 
 ```yaml
-- type: charger
+- type: simpleevse
   uri: 192.168.0.8:502 # TCP ModBus address
 ```
 
+<a id="charger-12"></a>
 #### Simple EVSE (USB)
 
 ```yaml
-- type: charger
+- type: simpleevse
   device: /dev/usb1 # RS485 ModBus device
 ```
 
+<a id="charger-13"></a>
 #### Wallbe (Eco, Pro)
 
 ```yaml
-- type: charger
-  uri: 192.168.0.8:502 # ModBus address
+- type: wallbe
+  uri: 192.168.0.8:502 # TCP ModBus address
 ```
 
+<a id="charger-14"></a>
 #### Wallbe (pre 2019)
 
 ```yaml
-- type: charger
-  uri: 192.168.0.8:502 # ModBus address
+- type: wallbe
+  uri: 192.168.0.8:502 # TCP ModBus address
   legacy: true # enable for older Wallbes with Phoenix EV-CC-AC1-M3-CBC-RCM controller
+```
+
+
+### Vehicles
+
+
+<a id="vehicle-0"></a>
+#### Generisch
+
+```yaml
+- type: default
+  title: Mein Auto # name
+  capacity: 50 # kWh
+  charge:
+    type: ...
+    # ...
+  cache: 5m # cache duration
+```
+
+<a id="vehicle-1"></a>
+#### Generisch (Script)
+
+```yaml
+- type: default
+  title: Mein Auto # name
+  capacity: 50 # kWh
+  charge:
+    type: script # use script
+    cmd: /bin/sh -c "echo 50" # actual command
+    timeout: 3s # kill script after 3 seconds
+  cache: 5m # cache duration
 ```
 

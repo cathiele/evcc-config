@@ -9,7 +9,7 @@ func init() {
 		Class:  "charger",
 		Type:   "phoenix-emcp",
 		Name:   "Phoenix EMCP Controller (Ethernet/Modbus TCP)",
-		Sample: `uri: 192.168.0.8:502 # ModBus address
+		Sample: `uri: 192.168.0.8:502 # TCP ModBus address
 id: 1`,
 	}
 

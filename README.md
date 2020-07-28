@@ -1,5 +1,9 @@
 # Configuration examples for EVCC
 
+[![Build Status](https://travis-ci.org/andig/evcc-config.svg?branch=master)](https://travis-ci.org/andig/evcc-config)
+
+Configuration examples for the [EVCC EV Charge Controller](https://github.com/andig/evcc).
+
 ## Meters
 
 - E3DC Batterie

@@ -61,13 +61,11 @@ func init() {
 }
 `
 
-func scanFolder(root string) []string {
-	var files []string
+func scanFolder(root string) (files []string) {
 	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
 		if filepath.Ext(info.Name()) == ext {
 			files = append(files, path)
 		}
-
 		return nil
 	})
 

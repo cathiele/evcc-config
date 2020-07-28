@@ -6,14 +6,14 @@ import (
 
 func init() {
 	template := registry.Template{
-		Class:       "charger",
-		Type:        "phoenix-evcc",
-		Name:        "Phoenix EVCC Controller (Modbus)",
-		Sample:      `device: /dev/ttyUSB0
+		Class:  "charger",
+		Type:   "phoenix-evcc",
+		Name:   "Phoenix EVCC Controller (Modbus)",
+		Sample: `device: /dev/ttyUSB0
 baudrate: 9600
 comset: 8N1
 id: 1 # slave id`,
 	}
 
-	registry.Registry.Add(template)
+	registry.Add(template)
 }

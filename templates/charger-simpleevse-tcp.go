@@ -6,11 +6,11 @@ import (
 
 func init() {
 	template := registry.Template{
-		Class:       "charger",
-		Type:        "simpleevse",
-		Name:        "Simple EVSE (Ethernet/Modbus TCP)",
-		Sample:      `uri: 192.168.0.8:502 # TCP ModBus address`,
+		Class:  "charger",
+		Type:   "simpleevse",
+		Name:   "Simple EVSE (Ethernet/Modbus TCP)",
+		Sample: `uri: 192.168.0.8:502 # TCP ModBus address`,
 	}
 
-	registry.Registry.Add(template)
+	registry.Add(template)
 }

@@ -6,11 +6,11 @@ import (
 
 func init() {
 	template := registry.Template{
-		Class:       "charger",
-		Type:        "simpleevse",
-		Name:        "Simple EVSE (USB)",
-		Sample:      `device: /dev/usb1 # RS485 ModBus device`,
+		Class:  "charger",
+		Type:   "simpleevse",
+		Name:   "Simple EVSE (USB)",
+		Sample: `device: /dev/usb1 # RS485 ModBus device`,
 	}
 
-	registry.Registry.Add(template)
+	registry.Add(template)
 }

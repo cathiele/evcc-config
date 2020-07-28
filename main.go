@@ -13,8 +13,6 @@ import (
 	"gopkg.in/yaml.v2"
 
 	"github.com/andig/evcc-config/registry"
-	"github.com/andig/evcc/meter"
-	"github.com/andig/evcc/util"
 	flag "github.com/spf13/pflag"
 )
 
@@ -51,13 +49,13 @@ import (
 
 func init() {
 	template := registry.Template{
-		Class:       "{{.Class}}",
-		Type:        "{{.Type}}",
-		Name:        "{{.Name}}",
-		Sample:      {{$tick}}{{escape .Sample}}{{$tick}},
+		Class:  "{{.Class}}",
+		Type:   "{{.Type}}",
+		Name:   "{{.Name}}",
+		Sample: {{$tick}}{{escape .Sample}}{{$tick}},
 	}
 
-	registry.Registry.Add(template)
+	registry.Add(template)
 }
 `
 
@@ -74,18 +72,6 @@ func scanFolder(root string) (files []string) {
 	}
 
 	return files
-}
-
-func configureMeter(sample registry.Template) {
-	var conf map[string]interface{}
-	if err := yaml.Unmarshal([]byte(sample.Sample), &conf); err != nil {
-		panic(err)
-	}
-
-	log := util.NewLogger("foo")
-	// log.SetLogThreshold(jww.Th)
-
-	meter.NewConfigurableFromConfig(log, conf)
 }
 
 func parseSample(file string) registry.Template {

@@ -6,12 +6,12 @@ import (
 
 func init() {
 	template := registry.Template{
-		Class:       "charger",
-		Type:        "go-e",
-		Name:        "go-eCharger (Cloud)",
-		Sample:      `token: 4711c # or go-e cloud API token
+		Class:  "charger",
+		Type:   "go-e",
+		Name:   "go-eCharger (Cloud)",
+		Sample: `token: 4711c # or go-e cloud API token
 cache: 10s # go-e cloud API cache duration`,
 	}
 
-	registry.Registry.Add(template)
+	registry.Add(template)
 }

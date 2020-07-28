@@ -6,10 +6,10 @@ import (
 
 func init() {
 	template := registry.Template{
-		Class:       "vehicle",
-		Type:        "default",
-		Name:        "Generisch",
-		Sample:      `title: Mein Auto # name
+		Class:  "vehicle",
+		Type:   "default",
+		Name:   "Generisch",
+		Sample: `title: Mein Auto # name
 capacity: 50 # kWh
 charge:
   type: ...
@@ -17,5 +17,5 @@ charge:
 cache: 5m # cache duration`,
 	}
 
-	registry.Registry.Add(template)
+	registry.Add(template)
 }

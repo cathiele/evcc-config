@@ -6,11 +6,11 @@ import (
 
 func init() {
 	template := registry.Template{
-		Class:       "charger",
-		Type:        "evsewifi",
-		Name:        "EVSE Wifi",
-		Sample:      `uri: http://192.168.1.4 # SimpleEVSE-Wifi address`,
+		Class:  "charger",
+		Type:   "evsewifi",
+		Name:   "EVSE Wifi",
+		Sample: `uri: http://192.168.1.4 # SimpleEVSE-Wifi address`,
 	}
 
-	registry.Registry.Add(template)
+	registry.Add(template)
 }

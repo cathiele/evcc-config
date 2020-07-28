@@ -6,11 +6,11 @@ import (
 
 func init() {
 	template := registry.Template{
-		Class:       "charger",
-		Type:        "wallbe",
-		Name:        "Wallbe (Eco, Pro)",
-		Sample:      `uri: 192.168.0.8:502 # ModBus address`,
+		Class:  "charger",
+		Type:   "wallbe",
+		Name:   "Wallbe (Eco, Pro)",
+		Sample: `uri: 192.168.0.8:502 # ModBus address`,
 	}
 
-	registry.Registry.Add(template)
+	registry.Add(template)
 }

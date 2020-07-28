@@ -6,10 +6,10 @@ import (
 
 func init() {
 	template := registry.Template{
-		Class:       "charger",
-		Type:        "default",
-		Name:        "Generisch (MQTT)",
-		Sample:      `status: # charger status A..F
+		Class:  "charger",
+		Type:   "default",
+		Name:   "Generisch (MQTT)",
+		Sample: `status: # charger status A..F
   type: mqtt
   topic: some/topic1
 enabled: # charger enabled state (true/false or 0/1)
@@ -23,5 +23,5 @@ maxcurrent: # set charger max current
   cmd: /bin/sh -c "echo ${maxcurrent}"`,
 	}
 
-	registry.Registry.Add(template)
+	registry.Add(template)
 }

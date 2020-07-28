@@ -3,7 +3,7 @@ package registry
 import "strings"
 
 // Registry is the template registry instance
-var Registry = registry{}
+var Registry = make([]Template, 0)
 
 // Template contains the template definition
 type Template struct {
@@ -13,10 +13,8 @@ type Template struct {
 	Sample string
 }
 
-type registry []Template
-
-func (r registry) Add(t Template) {
-	r = append(r, t)
+func Add(t Template) {
+	Registry = append(Registry, t)
 }
 
 type Templates []Template

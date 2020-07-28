@@ -6,11 +6,11 @@ import (
 
 func init() {
 	template := registry.Template{
-		Class:       "charger",
-		Type:        "go-e",
-		Name:        "go-eCharger (Lokal)",
-		Sample:      `uri: http://192.168.1.4 # either go-e local address`,
+		Class:  "charger",
+		Type:   "go-e",
+		Name:   "go-eCharger (Lokal)",
+		Sample: `uri: http://192.168.1.4 # either go-e local address`,
 	}
 
-	registry.Registry.Add(template)
+	registry.Add(template)
 }

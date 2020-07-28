@@ -1,0 +1,9 @@
+type: bmw
+name: BMW (i3)
+sample: |
+  title: i3 # display name for UI
+  capacity: 65 # kWh
+  user: # user
+  password: # password
+  vin: WBMW...
+  cache: 5m # cache API response

@@ -1,7 +1,7 @@
 type: default # Configurable charger
 name: Generisch
 sample: |
-  title: Mein Auto # name
+  title: Mein Auto # display name for UI
   capacity: 50 # kWh
   charge:
     type: ...

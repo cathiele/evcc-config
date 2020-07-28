@@ -44,8 +44,14 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ## Vehicles
 
-- [Generisch](#vehicle-0)
-- [Generisch (Script)](#vehicle-1)
+- [Audi](#vehicle-0)
+- [BMW (i3)](#vehicle-1)
+- [Generisch](#vehicle-2)
+- [Generisch (Script)](#vehicle-3)
+- [Nissan (Leaf)](#vehicle-4)
+- [Porsche](#vehicle-5)
+- [Renault (Zoe)](#vehicle-6)
+- [Tesla](#vehicle-7)
 
 ## Details
 
@@ -460,11 +466,37 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 
 <a id="vehicle-0"></a>
+#### Audi
+
+```yaml
+- type: audi
+  title: Q55 TFSIe # display name for UI
+  capacity: 10 # kWh
+  user: # user
+  password: # password
+  vin: WAUZZZ...
+  cache: 5m # cache API response
+```
+
+<a id="vehicle-1"></a>
+#### BMW (i3)
+
+```yaml
+- type: bmw
+  title: i3 # display name for UI
+  capacity: 65 # kWh
+  user: # user
+  password: # password
+  vin: WBMW...
+  cache: 5m # cache API response
+```
+
+<a id="vehicle-2"></a>
 #### Generisch
 
 ```yaml
 - type: default
-  title: Mein Auto # name
+  title: Mein Auto # display name for UI
   capacity: 50 # kWh
   charge:
     type: ...
@@ -472,17 +504,72 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   cache: 5m # cache duration
 ```
 
-<a id="vehicle-1"></a>
+<a id="vehicle-3"></a>
 #### Generisch (Script)
 
 ```yaml
 - type: default
-  title: Mein Auto # name
+  title: Auto # display name for UI
   capacity: 50 # kWh
   charge:
-    type: script # use script
+    type: script # use script plugin
     cmd: /bin/sh -c "echo 50" # actual command
     timeout: 3s # kill script after 3 seconds
   cache: 5m # cache duration
+```
+
+<a id="vehicle-4"></a>
+#### Nissan (Leaf)
+
+```yaml
+- type: nissan
+  title: Leaf # display name for UI
+  capacity: 60 # kWh
+  user: # user
+  password: # password
+  region: NE # carwings region, leave empty for Europe
+  cache: 5m # cache API response
+```
+
+<a id="vehicle-5"></a>
+#### Porsche
+
+```yaml
+- type: porsche
+  title: Taycan # display name for UI
+  capacity: 83 # kWh
+  user: # user
+  password: # password
+  vin: WP...
+  cache: 5m # cache API response
+```
+
+<a id="vehicle-6"></a>
+#### Renault (Zoe)
+
+```yaml
+- type: renault
+  title: Zoe # display name for UI
+  capacity: 60 # kWh
+  user: # user
+  password: # password
+  region: de_DE # gigya region
+  vin: WREN...
+  cache: 5m # cache API response
+```
+
+<a id="vehicle-7"></a>
+#### Tesla
+
+```yaml
+- type: tesla
+  title: Model S # display name for UI
+  capacity: 90 # kWh
+  clientid: # client id
+  clientsecret: # client secret
+  email: # email
+  password: # password
+  vin: WTSLA...
+  cache: 5m # cache API response
 ```
 

@@ -9,7 +9,7 @@ func init() {
 		Class:  "vehicle",
 		Type:   "default",
 		Name:   "Generisch",
-		Sample: `title: Mein Auto # name
+		Sample: `title: Mein Auto # display name for UI
 capacity: 50 # kWh
 charge:
   type: ...

@@ -20,7 +20,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 #### {{.Name}}
 
 ```yaml
-- type: {{.Class}}
+- type: {{.Type}}
 {{.Sample | indent 2}}
 ```
 {{end}}
@@ -31,7 +31,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 #### {{.Name}}
 
 ```yaml
-- type: {{.Class}}
+- type: {{.Type}}
 {{.Sample | indent 2}}
 ```
 {{end}}

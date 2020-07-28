@@ -6,12 +6,19 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ## Meters
 
-- [E3DC Batterie](#meter-0)
-- [Generisch (MQTT)](#meter-1)
-- [Generisch (Script)](#meter-2)
-- [Modbus](#meter-3)
-- [Modbus (RTU)](#meter-4)
-- [SMA Home Manager 2.0 / SMA Energy Meter 30](#meter-5)
+- [E3DC (Battery Meter)](#meter-0)
+- [E3DC (PV Meter)](#meter-1)
+- [Generisch (MQTT)](#meter-2)
+- [Generisch (Script)](#meter-3)
+- [Kostal Inverter (Grid Meter)](#meter-4)
+- [Kostal Inverter (PV Meter)](#meter-5)
+- [Kostal Smart Energy Meter (Grid Meter)](#meter-6)
+- [Modbus](#meter-7)
+- [Modbus (RTU)](#meter-8)
+- [Multiple Grid Inverters combined PV Meter](#meter-9)
+- [SMA Home Manager 2.0 / SMA Energy Meter 30](#meter-10)
+- [Solarlog (Grid Meter)](#meter-11)
+- [Solarlog (PV Meter)](#meter-12)
 
 ## Chargers
 
@@ -42,14 +49,14 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 
 <a id="meter-0"></a>
-#### E3DC Batterie
+#### E3DC (Battery Meter)
 
 ```yaml
 - type: default
   power:
     type: modbus
     uri: e3dc.fritz.box:502
-    id: 1
+    id: 1 # ModBus slave id
     register: # manual register configuration
       address: 40070
       type: holding
@@ -58,6 +65,22 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ```
 
 <a id="meter-1"></a>
+#### E3DC (PV Meter)
+
+```yaml
+- type: default
+  power:
+    type: modbus
+    uri: e3dc.fritz.box:502
+    id: 1 # ModBus slave id
+    register: # manual register configuration
+      address: 40067 # (40068 - 1) "Photovoltaikleistung in Watt"
+      type: holding
+      decode: int32s
+    scale: -1 # reverse sign
+```
+
+<a id="meter-2"></a>
 #### Generisch (MQTT)
 
 ```yaml
@@ -68,7 +91,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     timeout: 10s # don't use older values
 ```
 
-<a id="meter-2"></a>
+<a id="meter-3"></a>
 #### Generisch (Script)
 
 ```yaml
@@ -79,7 +102,44 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     timeout: 3s # kill script after 3 seconds
 ```
 
-<a id="meter-3"></a>
+<a id="meter-4"></a>
+#### Kostal Inverter (Grid Meter)
+
+```yaml
+- type: modbus
+  model: kostal
+  uri: 192.168.178.52:1502 
+  id: 71 # Configured Modbus Device ID 
+  register: # manual register configuration
+    address: 252 # (see https://www.kostal-solar-electric.com/de-de/download/-/media/document-library-folder---kse/2018/08/30/08/53/ba_kostal_interface_modbus-tcp_sunspec.pdf)
+    type: holding
+    decode: float32s #swapped float encoding
+```
+
+<a id="meter-5"></a>
+#### Kostal Inverter (PV Meter)
+
+```yaml
+- type: modbus
+  model: kostal
+  uri: 192.168.0.1:1502
+  id: 71
+  power: Power
+```
+
+<a id="meter-6"></a>
+#### Kostal Smart Energy Meter (Grid Meter)
+
+```yaml
+- type: modbus
+  model: kostal
+  uri: 192.168.0.1:502
+  id: 71
+  power: Power
+  energy: Energy
+```
+
+<a id="meter-7"></a>
 #### Modbus
 
 ```yaml
@@ -92,7 +152,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   energy: Sum # default values, optionally override
 ```
 
-<a id="meter-4"></a>
+<a id="meter-8"></a>
 #### Modbus (RTU)
 
 ```yaml
@@ -105,12 +165,61 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   energy: Sum # default values, optionally override
 ```
 
-<a id="meter-5"></a>
+<a id="meter-9"></a>
+#### Multiple Grid Inverters combined PV Meter
+
+```yaml
+- type: default
+  power:
+    type: calc # use the calc plugin
+    add: # The add function sums up both string values
+    - type: modbus
+      model: sunspec
+      value: 160:1:DCW # string 1
+      uri: 192.168.178.52:1502 
+      id: 71 # Configured Modbus Device ID 
+    - type: modbus  
+      value: 160:2:DCW # string 2
+      uri: 192.168.178.52:1502 
+      id: 71 # Configured Modbus Device ID 
+```
+
+<a id="meter-10"></a>
 #### SMA Home Manager 2.0 / SMA Energy Meter 30
 
 ```yaml
 - type: sma
   serial: 1234567890 # Serial number of the device
+```
+
+<a id="meter-11"></a>
+#### Solarlog (Grid Meter)
+
+```yaml
+- type: default
+  power:
+    type: modbus
+    uri: 192.168.0.32:502 # IP address of the SolarLog device and ModBus port address
+    id: 1
+    register:
+      address: 3518
+      type: input
+      decode: uint32s
+```
+
+<a id="meter-12"></a>
+#### Solarlog (PV Meter)
+
+```yaml
+- type: default
+  power:
+    type: modbus
+    uri: 192.168.0.32:502 # IP address of the SolarLog  device and ModBus port address
+    id: 1
+    register:
+      address: 3502
+      type: input
+      decode: uint32s
 ```
 
 

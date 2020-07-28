@@ -8,16 +8,15 @@ func init() {
 	template := registry.Template{
 		Class:  "meter",
 		Type:   "default",
-		Name:   "E3DC (Battery Meter)",
+		Name:   "Solarlog (PV Meter)",
 		Sample: `power:
   type: modbus
-  uri: e3dc.fritz.box:502
-  id: 1 # ModBus slave id
-  register: # manual register configuration
-    address: 40070
-    type: holding
-    decode: int32
-  scale: -1 # reverse direction`,
+  uri: 192.168.0.32:502 # IP address of the SolarLog  device and ModBus port address
+  id: 1
+  register:
+    address: 3502
+    type: input
+    decode: uint32s`,
 	}
 
 	registry.Add(template)

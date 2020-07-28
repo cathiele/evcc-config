@@ -10,10 +10,10 @@ import (
 	"strings"
 	"text/template"
 
-	"gopkg.in/yaml.v2"
-
 	"github.com/andig/evcc-config/registry"
+
 	flag "github.com/spf13/pflag"
+	"gopkg.in/yaml.v2"
 )
 
 const (

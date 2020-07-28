@@ -1,12 +1,12 @@
 type: default
-name: E3DC (Battery Meter)
+name: E3DC (PV Meter)
 sample: |
   power:
     type: modbus
     uri: e3dc.fritz.box:502
     id: 1 # ModBus slave id
     register: # manual register configuration
-      address: 40070
+      address: 40067 # (40068 - 1) "Photovoltaikleistung in Watt"
       type: holding
-      decode: int32
-    scale: -1 # reverse direction
+      decode: int32s
+    scale: -1 # reverse sign

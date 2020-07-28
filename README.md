@@ -15,10 +15,13 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - [Kostal Smart Energy Meter (Grid Meter)](#meter-6)
 - [Modbus](#meter-7)
 - [Modbus (RTU)](#meter-8)
-- [Multiple Grid Inverters combined PV Meter](#meter-9)
+- [Multiple Grid Inverters combined (PV Meter)](#meter-9)
 - [SMA Home Manager 2.0 / SMA Energy Meter 30](#meter-10)
 - [Solarlog (Grid Meter)](#meter-11)
 - [Solarlog (PV Meter)](#meter-12)
+- [vzlogger (HTTP)](#meter-13)
+- [vzlogger (Push Server/ Websocket)](#meter-14)
+- [vzlogger (split import/export channels)](#meter-15)
 
 ## Chargers
 
@@ -166,7 +169,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ```
 
 <a id="meter-9"></a>
-#### Multiple Grid Inverters combined PV Meter
+#### Multiple Grid Inverters combined (PV Meter)
 
 ```yaml
 - type: default
@@ -220,6 +223,48 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
       address: 3502
       type: input
       decode: uint32s
+```
+
+<a id="meter-13"></a>
+#### vzlogger (HTTP)
+
+```yaml
+- type: default
+  power: # power reading
+    type: mqtt # use mqtt
+    topic: mbmd/sdm1-1/Power # mqtt topic
+    timeout: 10s # don't use older values
+```
+
+<a id="meter-14"></a>
+#### vzlogger (Push Server/ Websocket)
+
+```yaml
+- type: default
+  type: default
+  power:
+    type: ws # use websocket plugin
+    uri: ws://volkszaehler:8082/socket
+    jq: .data | select(.uuid=="<uuid>") .tuples[0][1] # parse response json
+    timeout: 30s
+    scale: 1
+```
+
+<a id="meter-15"></a>
+#### vzlogger (split import/export channels)
+
+```yaml
+- type: default
+  power:
+    type: calc # use calc plugin
+    add:
+      - type: http # import channel
+        uri: http://volkszaehler/api/data/<import-uuid>.json?from=now
+        jq: .data.tuples[0][1] # parse response json
+      - type: http # export channel
+        uri: http://volkszaehler/api/data/<export-uuid>.json?from=now
+        jq: .data.tuples[0][1] # parse response json
+        scale: -1 # export must result in negative values
 ```
 
 

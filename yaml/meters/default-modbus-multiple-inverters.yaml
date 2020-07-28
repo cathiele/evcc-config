@@ -1,5 +1,5 @@
 type: default
-name: Multiple Grid Inverters combined PV Meter
+name: Multiple Grid Inverters combined (PV Meter)
 sample: |
   power:
     type: calc # use the calc plugin

@@ -8,7 +8,7 @@ func init() {
 	template := registry.Template{
 		Class:  "meter",
 		Type:   "default",
-		Name:   "Multiple Grid Inverters combined PV Meter",
+		Name:   "Multiple Grid Inverters combined (PV Meter)",
 		Sample: `power:
   type: calc # use the calc plugin
   add: # The add function sums up both string values

@@ -11,7 +11,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - Generisch (Script)
 - Modbus
 - Modbus (RTU)
-- SMA Home Manager 2.0 oder SMA Energy Meter 30
+- SMA Home Manager 2.0 / SMA Energy Meter 30
 
 ## Chargers
 
@@ -95,12 +95,11 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   energy: Sum # default values, optionally override
 ```
 
-#### SMA Home Manager 2.0 oder SMA Energy Meter 30
+#### SMA Home Manager 2.0 / SMA Energy Meter 30
 
 ```yaml
 - type: meter
-  serial: 1234567890 # Serial number of the device, if this is defined uri is not needed!
-  uri: 192.168.1.4 # IP address of the device, if this is defined serial is not needed!
+  serial: 1234567890 # Serial number of the device
 ```
 
 

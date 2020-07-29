@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"regexp"
 	"sort"
 	"strings"
 	"text/template"
@@ -115,6 +116,12 @@ func renderSummary(wr io.Writer, samples []registry.Template) {
 		panic(err)
 	}
 
+	// prepare outside of loop
+	re, err := regexp.Compile("[^a-zA-ZäöüÄÖÜ0-9]")
+	if err != nil {
+		panic(err)
+	}
+
 	tmpl, err := template.New("test").Funcs(template.FuncMap{
 		// filter samples by class
 		"filter": func(class string, samples []registry.Template) (reg []registry.Template) {
@@ -129,6 +136,11 @@ func renderSummary(wr io.Writer, samples []registry.Template) {
 		"indent": func(spaces int, v string) string {
 			pad := strings.Repeat(" ", spaces)
 			return pad + strings.Replace(v, "\n", "\n"+pad, -1)
+		},
+		// unique link target
+		"href": func(class, name string) string {
+			link := strings.ReplaceAll(re.ReplaceAllString(strings.ToLower(name), "-"), "--", "-")
+			return strings.Trim(strings.ToLower(class)+"-"+link, "-")
 		},
 	}).Parse(string(summaryTemplate))
 

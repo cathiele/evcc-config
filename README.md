@@ -6,59 +6,59 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ## Meters
 
-- [E3DC (Battery Meter)](#meter-0)
-- [E3DC (PV Meter)](#meter-1)
-- [Generisch (MQTT)](#meter-2)
-- [Generisch (Script)](#meter-3)
-- [Kostal Inverter (Grid Meter)](#meter-4)
-- [Kostal Inverter (PV Meter)](#meter-5)
-- [Kostal Smart Energy Meter (Grid Meter)](#meter-6)
-- [Modbus](#meter-7)
-- [Modbus (RTU)](#meter-8)
-- [Multiple Grid Inverters combined (PV Meter)](#meter-9)
-- [SMA Home Manager 2.0 / SMA Energy Meter 30](#meter-10)
-- [Solarlog (Grid Meter)](#meter-11)
-- [Solarlog (PV Meter)](#meter-12)
-- [vzlogger (HTTP)](#meter-13)
-- [vzlogger (Push Server/ Websocket)](#meter-14)
-- [vzlogger (split import/export channels)](#meter-15)
+- [E3DC (Battery Meter)](#meter-e3dc-battery-meter)
+- [E3DC (PV Meter)](#meter-e3dc-pv-meter)
+- [Generisch (MQTT)](#meter-generisch-mqtt)
+- [Generisch (Script)](#meter-generisch-script)
+- [Kostal Inverter (Grid Meter)](#meter-kostal-inverter-grid-meter)
+- [Kostal Inverter (PV Meter)](#meter-kostal-inverter-pv-meter)
+- [Kostal Smart Energy Meter (Grid Meter)](#meter-kostal-smart-energy-meter-grid-meter)
+- [Modbus](#meter-modbus)
+- [Modbus (RTU)](#meter-modbus-rtu)
+- [Multiple Grid Inverters combined (PV Meter)](#meter-multiple-grid-inverters-combined-pv-meter)
+- [SMA Home Manager 2.0 / SMA Energy Meter 30](#meter-sma-home-manager-2-0--sma-energy-meter-30)
+- [Solarlog (Grid Meter)](#meter-solarlog-grid-meter)
+- [Solarlog (PV Meter)](#meter-solarlog-pv-meter)
+- [vzlogger (HTTP)](#meter-vzlogger-http)
+- [vzlogger (Push Server/ Websocket)](#meter-vzlogger-push-server-websocket)
+- [vzlogger (split import/export channels)](#meter-vzlogger-split-import-export-channels)
 
 ## Chargers
 
-- [EVSE Wifi](#charger-0)
-- [Generisch](#charger-1)
-- [Generisch (MQTT)](#charger-2)
-- [go-eCharger (Cloud)](#charger-3)
-- [go-eCharger (Lokal)](#charger-4)
-- [KEBA Connect](#charger-5)
-- [Mobile Charger Connect](#charger-6)
-- [NRGKick Bluetooth](#charger-7)
-- [NRGKick Connect](#charger-8)
-- [OpenWB (remote-controlled using MQTT)](#charger-9)
-- [Phoenix EMCP Controller (Ethernet/Modbus TCP)](#charger-10)
-- [Phoenix EVCC Controller (Modbus)](#charger-11)
-- [Simple EVSE (Ethernet/Modbus TCP)](#charger-12)
-- [Simple EVSE (USB)](#charger-13)
-- [Wallbe (Eco, Pro)](#charger-14)
-- [Wallbe (pre 2019)](#charger-15)
+- [EVSE Wifi](#charger-evse-wifi)
+- [Generisch](#charger-generisch)
+- [Generisch (MQTT)](#charger-generisch-mqtt)
+- [go-eCharger (Cloud)](#charger-go-echarger-cloud)
+- [go-eCharger (Lokal)](#charger-go-echarger-lokal)
+- [KEBA Connect](#charger-keba-connect)
+- [Mobile Charger Connect](#charger-mobile-charger-connect)
+- [NRGKick Bluetooth](#charger-nrgkick-bluetooth)
+- [NRGKick Connect](#charger-nrgkick-connect)
+- [OpenWB (remote-controlled using MQTT)](#charger-openwb-remote-controlled-using-mqtt)
+- [Phoenix EMCP Controller (Ethernet/Modbus TCP)](#charger-phoenix-emcp-controller-ethernet-modbus-tcp)
+- [Phoenix EVCC Controller (Modbus)](#charger-phoenix-evcc-controller-modbus)
+- [Simple EVSE (Ethernet/Modbus TCP)](#charger-simple-evse-ethernet-modbus-tcp)
+- [Simple EVSE (USB)](#charger-simple-evse-usb)
+- [Wallbe (Eco, Pro)](#charger-wallbe-eco-pro)
+- [Wallbe (pre 2019)](#charger-wallbe-pre-2019)
 
 ## Vehicles
 
-- [Audi](#vehicle-0)
-- [BMW (i3)](#vehicle-1)
-- [Generisch](#vehicle-2)
-- [Generisch (Script)](#vehicle-3)
-- [Nissan (Leaf)](#vehicle-4)
-- [Porsche](#vehicle-5)
-- [Renault (Zoe)](#vehicle-6)
-- [Tesla](#vehicle-7)
+- [Audi](#vehicle-audi)
+- [BMW (i3)](#vehicle-bmw-i3)
+- [Generisch](#vehicle-generisch)
+- [Generisch (Script)](#vehicle-generisch-script)
+- [Nissan (Leaf)](#vehicle-nissan-leaf)
+- [Porsche](#vehicle-porsche)
+- [Renault (Zoe)](#vehicle-renault-zoe)
+- [Tesla](#vehicle-tesla)
 
 ## Details
 
 ### Meters
 
 
-<a id="meter-0"></a>
+<a id="meter-e3dc-battery-meter"></a>
 #### E3DC (Battery Meter)
 
 ```yaml
@@ -74,7 +74,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     scale: -1 # reverse direction
 ```
 
-<a id="meter-1"></a>
+<a id="meter-e3dc-pv-meter"></a>
 #### E3DC (PV Meter)
 
 ```yaml
@@ -90,7 +90,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     scale: -1 # reverse sign
 ```
 
-<a id="meter-2"></a>
+<a id="meter-generisch-mqtt"></a>
 #### Generisch (MQTT)
 
 ```yaml
@@ -101,7 +101,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     timeout: 10s # don't use older values
 ```
 
-<a id="meter-3"></a>
+<a id="meter-generisch-script"></a>
 #### Generisch (Script)
 
 ```yaml
@@ -112,7 +112,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     timeout: 3s # kill script after 3 seconds
 ```
 
-<a id="meter-4"></a>
+<a id="meter-kostal-inverter-grid-meter"></a>
 #### Kostal Inverter (Grid Meter)
 
 ```yaml
@@ -126,7 +126,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     decode: float32s #swapped float encoding
 ```
 
-<a id="meter-5"></a>
+<a id="meter-kostal-inverter-pv-meter"></a>
 #### Kostal Inverter (PV Meter)
 
 ```yaml
@@ -137,7 +137,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   power: Power
 ```
 
-<a id="meter-6"></a>
+<a id="meter-kostal-smart-energy-meter-grid-meter"></a>
 #### Kostal Smart Energy Meter (Grid Meter)
 
 ```yaml
@@ -149,7 +149,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   energy: Energy
 ```
 
-<a id="meter-7"></a>
+<a id="meter-modbus"></a>
 #### Modbus
 
 ```yaml
@@ -162,7 +162,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   energy: Sum # default values, optionally override
 ```
 
-<a id="meter-8"></a>
+<a id="meter-modbus-rtu"></a>
 #### Modbus (RTU)
 
 ```yaml
@@ -175,7 +175,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   energy: Sum # default values, optionally override
 ```
 
-<a id="meter-9"></a>
+<a id="meter-multiple-grid-inverters-combined-pv-meter"></a>
 #### Multiple Grid Inverters combined (PV Meter)
 
 ```yaml
@@ -194,7 +194,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
       id: 71 # Configured Modbus Device ID 
 ```
 
-<a id="meter-10"></a>
+<a id="meter-sma-home-manager-2-0--sma-energy-meter-30"></a>
 #### SMA Home Manager 2.0 / SMA Energy Meter 30
 
 ```yaml
@@ -202,7 +202,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   serial: 1234567890 # Serial number of the device
 ```
 
-<a id="meter-11"></a>
+<a id="meter-solarlog-grid-meter"></a>
 #### Solarlog (Grid Meter)
 
 ```yaml
@@ -217,7 +217,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
       decode: uint32s
 ```
 
-<a id="meter-12"></a>
+<a id="meter-solarlog-pv-meter"></a>
 #### Solarlog (PV Meter)
 
 ```yaml
@@ -232,7 +232,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
       decode: uint32s
 ```
 
-<a id="meter-13"></a>
+<a id="meter-vzlogger-http"></a>
 #### vzlogger (HTTP)
 
 ```yaml
@@ -243,7 +243,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     timeout: 10s # don't use older values
 ```
 
-<a id="meter-14"></a>
+<a id="meter-vzlogger-push-server-websocket"></a>
 #### vzlogger (Push Server/ Websocket)
 
 ```yaml
@@ -257,7 +257,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     scale: 1
 ```
 
-<a id="meter-15"></a>
+<a id="meter-vzlogger-split-import-export-channels"></a>
 #### vzlogger (split import/export channels)
 
 ```yaml
@@ -278,7 +278,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ### Chargers
 
 
-<a id="charger-0"></a>
+<a id="charger-evse-wifi"></a>
 #### EVSE Wifi
 
 ```yaml
@@ -286,7 +286,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   uri: http://192.168.1.4 # SimpleEVSE-Wifi address
 ```
 
-<a id="charger-1"></a>
+<a id="charger-generisch"></a>
 #### Generisch
 
 ```yaml
@@ -305,7 +305,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     # ...
 ```
 
-<a id="charger-2"></a>
+<a id="charger-generisch-mqtt"></a>
 #### Generisch (MQTT)
 
 ```yaml
@@ -324,7 +324,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     cmd: /bin/sh -c "echo ${maxcurrent}"
 ```
 
-<a id="charger-3"></a>
+<a id="charger-go-echarger-cloud"></a>
 #### go-eCharger (Cloud)
 
 ```yaml
@@ -333,7 +333,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   cache: 10s # go-e cloud API cache duration
 ```
 
-<a id="charger-4"></a>
+<a id="charger-go-echarger-lokal"></a>
 #### go-eCharger (Lokal)
 
 ```yaml
@@ -341,7 +341,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   uri: http://192.168.1.4 # either go-e local address
 ```
 
-<a id="charger-5"></a>
+<a id="charger-keba-connect"></a>
 #### KEBA Connect
 
 ```yaml
@@ -351,7 +351,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     tag: 765765348 # RFID tag, see `evcc charger` to show tag
 ```
 
-<a id="charger-6"></a>
+<a id="charger-mobile-charger-connect"></a>
 #### Mobile Charger Connect
 
 ```yaml
@@ -360,7 +360,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   password: # home user password
 ```
 
-<a id="charger-7"></a>
+<a id="charger-nrgkick-bluetooth"></a>
 #### NRGKick Bluetooth
 
 ```yaml
@@ -369,7 +369,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   pin: # pin
 ```
 
-<a id="charger-8"></a>
+<a id="charger-nrgkick-connect"></a>
 #### NRGKick Connect
 
 ```yaml
@@ -379,7 +379,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   password: # password
 ```
 
-<a id="charger-9"></a>
+<a id="charger-openwb-remote-controlled-using-mqtt"></a>
 #### OpenWB (remote-controlled using MQTT)
 
 ```yaml
@@ -408,7 +408,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     payload: ${maxCurrent:%d} # write payload definition
 ```
 
-<a id="charger-10"></a>
+<a id="charger-phoenix-emcp-controller-ethernet-modbus-tcp"></a>
 #### Phoenix EMCP Controller (Ethernet/Modbus TCP)
 
 ```yaml
@@ -417,7 +417,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   id: 1
 ```
 
-<a id="charger-11"></a>
+<a id="charger-phoenix-evcc-controller-modbus"></a>
 #### Phoenix EVCC Controller (Modbus)
 
 ```yaml
@@ -428,7 +428,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   id: 1 # slave id
 ```
 
-<a id="charger-12"></a>
+<a id="charger-simple-evse-ethernet-modbus-tcp"></a>
 #### Simple EVSE (Ethernet/Modbus TCP)
 
 ```yaml
@@ -436,7 +436,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   uri: 192.168.0.8:502 # TCP ModBus address
 ```
 
-<a id="charger-13"></a>
+<a id="charger-simple-evse-usb"></a>
 #### Simple EVSE (USB)
 
 ```yaml
@@ -444,7 +444,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   device: /dev/usb1 # RS485 ModBus device
 ```
 
-<a id="charger-14"></a>
+<a id="charger-wallbe-eco-pro"></a>
 #### Wallbe (Eco, Pro)
 
 ```yaml
@@ -452,7 +452,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   uri: 192.168.0.8:502 # TCP ModBus address
 ```
 
-<a id="charger-15"></a>
+<a id="charger-wallbe-pre-2019"></a>
 #### Wallbe (pre 2019)
 
 ```yaml
@@ -465,7 +465,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ### Vehicles
 
 
-<a id="vehicle-0"></a>
+<a id="vehicle-audi"></a>
 #### Audi
 
 ```yaml
@@ -478,7 +478,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   cache: 5m # cache API response
 ```
 
-<a id="vehicle-1"></a>
+<a id="vehicle-bmw-i3"></a>
 #### BMW (i3)
 
 ```yaml
@@ -491,7 +491,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   cache: 5m # cache API response
 ```
 
-<a id="vehicle-2"></a>
+<a id="vehicle-generisch"></a>
 #### Generisch
 
 ```yaml
@@ -504,7 +504,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   cache: 5m # cache duration
 ```
 
-<a id="vehicle-3"></a>
+<a id="vehicle-generisch-script"></a>
 #### Generisch (Script)
 
 ```yaml
@@ -518,7 +518,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   cache: 5m # cache duration
 ```
 
-<a id="vehicle-4"></a>
+<a id="vehicle-nissan-leaf"></a>
 #### Nissan (Leaf)
 
 ```yaml
@@ -531,7 +531,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   cache: 5m # cache API response
 ```
 
-<a id="vehicle-5"></a>
+<a id="vehicle-porsche"></a>
 #### Porsche
 
 ```yaml
@@ -544,7 +544,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   cache: 5m # cache API response
 ```
 
-<a id="vehicle-6"></a>
+<a id="vehicle-renault-zoe"></a>
 #### Renault (Zoe)
 
 ```yaml
@@ -558,7 +558,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   cache: 5m # cache API response
 ```
 
-<a id="vehicle-7"></a>
+<a id="vehicle-tesla"></a>
 #### Tesla
 
 ```yaml

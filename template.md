@@ -5,23 +5,23 @@
 Configuration examples for the [EVCC EV Charge Controller](https://github.com/andig/evcc).
 
 ## Meters
-{{range $id, $el := filter "meter" .}}
-- [{{.Name}}](#meter-{{$id}}){{end}}
+{{range filter "meter" .}}
+- [{{.Name}}](#{{href "meter" .Name}}){{end}}
 
 ## Chargers
-{{range $id, $el := filter "charger" .}}
-- [{{.Name}}](#charger-{{$id}}){{end}}
+{{range filter "charger" .}}
+- [{{.Name}}](#{{href "charger" .Name}}){{end}}
 
 ## Vehicles
-{{range $id, $el := filter "vehicle" .}}
-- [{{.Name}}](#vehicle-{{$id}}){{end}}
+{{range filter "vehicle" .}}
+- [{{.Name}}](#{{href "vehicle" .Name}}){{end}}
 
 ## Details
 
 ### Meters
 
-{{range $id, $el := filter "meter" .}}
-<a id="meter-{{$id}}"></a>
+{{range filter "meter" .}}
+<a id="{{href "meter" .Name}}"></a>
 #### {{.Name}}
 
 ```yaml
@@ -32,8 +32,8 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ### Chargers
 
-{{range $id, $el := filter "charger" .}}
-<a id="charger-{{$id}}"></a>
+{{range filter "charger" .}}
+<a id="{{href "charger" .Name}}"></a>
 #### {{.Name}}
 
 ```yaml
@@ -44,8 +44,8 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ### Vehicles
 
-{{range $id, $el := filter "vehicle" .}}
-<a id="vehicle-{{$id}}"></a>
+{{range filter "vehicle" .}}
+<a id="{{href "vehicle" .Name}}"></a>
 #### {{.Name}}
 
 ```yaml

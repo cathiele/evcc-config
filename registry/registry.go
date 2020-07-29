@@ -17,6 +17,16 @@ func Add(t Template) {
 	Registry = append(Registry, t)
 }
 
+func TemplatesByClass(class string) []Template {
+	templates := make([]Template, 0)
+	for _, t := range Registry {
+		if t.Class == class {
+			templates = append(templates, t)
+		}
+	}
+	return templates
+}
+
 type Templates []Template
 
 func (e Templates) Len() int {

@@ -8,7 +8,7 @@ func init() {
 	template := registry.Template{
 		Class:  "charger",
 		Type:   "phoenix-evcc",
-		Name:   "Phoenix EVCC Controller (Modbus)",
+		Name:   "Phoenix EV-CC Controller (Modbus)",
 		Sample: `device: /dev/ttyUSB0
 baudrate: 9600
 comset: 8N1

@@ -35,12 +35,12 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - [NRGKick Bluetooth](#charger-nrgkick-bluetooth)
 - [NRGKick Connect](#charger-nrgkick-connect)
 - [OpenWB (remote-controlled using MQTT)](#charger-openwb-remote-controlled-using-mqtt)
-- [Phoenix EMCP Controller (Ethernet/Modbus TCP)](#charger-phoenix-emcp-controller-ethernet-modbus-tcp)
-- [Phoenix EVCC Controller (Modbus)](#charger-phoenix-evcc-controller-modbus)
+- [Phoenix EM-CP Controller (Ethernet/Modbus TCP)](#charger-phoenix-em-cp-controller-ethernet-modbus-tcp)
+- [Phoenix EV-CC Controller (Modbus)](#charger-phoenix-ev-cc-controller-modbus)
 - [Simple EVSE (Ethernet/Modbus TCP)](#charger-simple-evse-ethernet-modbus-tcp)
 - [Simple EVSE (USB)](#charger-simple-evse-usb)
 - [Wallbe (Eco, Pro)](#charger-wallbe-eco-pro)
-- [Wallbe (pre 2019)](#charger-wallbe-pre-2019)
+- [Wallbe (pre 2019 EV-CC-AC1 controller)](#charger-wallbe-pre-2019-ev-cc-ac1-controller)
 
 ## Vehicles
 
@@ -408,8 +408,8 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     payload: ${maxCurrent:%d} # write payload definition
 ```
 
-<a id="charger-phoenix-emcp-controller-ethernet-modbus-tcp"></a>
-#### Phoenix EMCP Controller (Ethernet/Modbus TCP)
+<a id="charger-phoenix-em-cp-controller-ethernet-modbus-tcp"></a>
+#### Phoenix EM-CP Controller (Ethernet/Modbus TCP)
 
 ```yaml
 - type: phoenix-emcp
@@ -417,8 +417,8 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   id: 1
 ```
 
-<a id="charger-phoenix-evcc-controller-modbus"></a>
-#### Phoenix EVCC Controller (Modbus)
+<a id="charger-phoenix-ev-cc-controller-modbus"></a>
+#### Phoenix EV-CC Controller (Modbus)
 
 ```yaml
 - type: phoenix-evcc
@@ -452,8 +452,8 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   uri: 192.168.0.8:502 # TCP ModBus address
 ```
 
-<a id="charger-wallbe-pre-2019"></a>
-#### Wallbe (pre 2019)
+<a id="charger-wallbe-pre-2019-ev-cc-ac1-controller"></a>
+#### Wallbe (pre 2019 EV-CC-AC1 controller)
 
 ```yaml
 - type: wallbe

@@ -1,5 +1,5 @@
 type: wallbe
-name: Wallbe (pre 2019)
+name: Wallbe (pre 2019 EV-CC-AC1 controller)
 sample: |
   uri: 192.168.0.8:502 # TCP ModBus address
   legacy: true # enable for older Wallbes with Phoenix EV-CC-AC1-M3-CBC-RCM controller

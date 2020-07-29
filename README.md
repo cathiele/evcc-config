@@ -96,7 +96,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ```yaml
 - type: default
   power: # power reading
-    type: mqtt # use mqtt
+    type: mqtt # use mqtt plugin
     topic: mbmd/sdm1-1/Power # mqtt topic
     timeout: 10s # don't use older values
 ```
@@ -107,7 +107,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ```yaml
 - type: default
   power:
-    type: script # use script
+    type: script # use script plugin
     cmd: /bin/sh -c "echo 0" # actual command
     timeout: 3s # kill script after 3 seconds
 ```
@@ -238,7 +238,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ```yaml
 - type: default
   power: # power reading
-    type: mqtt # use mqtt
+    type: mqtt # use mqtt plugin
     topic: mbmd/sdm1-1/Power # mqtt topic
     timeout: 10s # don't use older values
 ```
@@ -248,7 +248,6 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ```yaml
 - type: default
-  type: default
   power:
     type: ws # use websocket plugin
     uri: ws://volkszaehler:8082/socket
@@ -265,13 +264,13 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   power:
     type: calc # use calc plugin
     add:
-      - type: http # import channel
-        uri: http://volkszaehler/api/data/<import-uuid>.json?from=now
-        jq: .data.tuples[0][1] # parse response json
-      - type: http # export channel
-        uri: http://volkszaehler/api/data/<export-uuid>.json?from=now
-        jq: .data.tuples[0][1] # parse response json
-        scale: -1 # export must result in negative values
+    - type: http # import channel
+      uri: http://volkszaehler/api/data/<import-uuid>.json?from=now
+      jq: .data.tuples[0][1] # parse response json
+    - type: http # export channel
+      uri: http://volkszaehler/api/data/<export-uuid>.json?from=now
+      jq: .data.tuples[0][1] # parse response json
+      scale: -1 # export must result in negative values
 ```
 
 

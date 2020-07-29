@@ -10,7 +10,7 @@ func init() {
 		Type:   "default",
 		Name:   "vzlogger (HTTP)",
 		Sample: `power: # power reading
-  type: mqtt # use mqtt
+  type: mqtt # use mqtt plugin
   topic: mbmd/sdm1-1/Power # mqtt topic
   timeout: 10s # don't use older values`,
 	}

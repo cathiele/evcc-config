@@ -1,7 +1,6 @@
 type: default
 name: vzlogger (Push Server/ Websocket)
 sample: |
-  type: default
   power:
     type: ws # use websocket plugin
     uri: ws://volkszaehler:8082/socket

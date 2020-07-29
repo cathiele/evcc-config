@@ -9,8 +9,7 @@ func init() {
 		Class:  "meter",
 		Type:   "default",
 		Name:   "vzlogger (Push Server/ Websocket)",
-		Sample: `type: default
-power:
+		Sample: `power:
   type: ws # use websocket plugin
   uri: ws://volkszaehler:8082/socket
   jq: .data | select(.uuid=="<uuid>") .tuples[0][1] # parse response json

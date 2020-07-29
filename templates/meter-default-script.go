@@ -10,7 +10,7 @@ func init() {
 		Type:   "default",
 		Name:   "Generisch (Script)",
 		Sample: `power:
-  type: script # use script
+  type: script # use script plugin
   cmd: /bin/sh -c "echo 0" # actual command
   timeout: 3s # kill script after 3 seconds`,
 	}

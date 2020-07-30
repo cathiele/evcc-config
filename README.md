@@ -240,9 +240,9 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ```yaml
 - type: default
   power: # power reading
-    type: mqtt # use mqtt plugin
-    topic: mbmd/sdm1-1/Power # mqtt topic
-    timeout: 10s # don't use older values
+    type: http # use http plugin
+    uri: http://demo.volkszaehler.org/api/data/<uuid>.json?from=now
+    jq: .data.tuples[0][1] # parse response json
 ```
 
 <a id="meter-vzlogger-push-server-websocket"></a>

@@ -10,9 +10,9 @@ func init() {
 		Type:   "default",
 		Name:   "vzlogger (HTTP)",
 		Sample: `power: # power reading
-  type: mqtt # use mqtt plugin
-  topic: mbmd/sdm1-1/Power # mqtt topic
-  timeout: 10s # don't use older values`,
+  type: http # use http plugin
+  uri: http://demo.volkszaehler.org/api/data/<uuid>.json?from=now
+  jq: .data.tuples[0][1] # parse response json`,
 	}
 
 	registry.Add(template)

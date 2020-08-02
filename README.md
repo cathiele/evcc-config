@@ -17,6 +17,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - [Modbus (RTU)](#meter-modbus-rtu)
 - [Multiple Grid Inverters combined (PV Meter)](#meter-multiple-grid-inverters-combined-pv-meter)
 - [SMA Home Manager 2.0 / SMA Energy Meter 30](#meter-sma-home-manager-2-0--sma-energy-meter-30)
+- [SMA Sunny Island](#meter-sma-sunny-island)
 - [Solarlog (Grid Meter)](#meter-solarlog-grid-meter)
 - [Solarlog (PV Meter)](#meter-solarlog-pv-meter)
 - [vzlogger (HTTP)](#meter-vzlogger-http)
@@ -202,6 +203,18 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ```yaml
 - type: sma
   serial: 1234567890 # Serial number of the device
+```
+
+<a id="meter-sma-sunny-island"></a>
+#### SMA Sunny Island
+
+```yaml
+- type: modbus
+  model: sunny-island
+  uri: 192.168.1.4:502
+  id: 126
+  power: Power # default values, optionally override
+  energy: Sum # default values, optionally override
 ```
 
 <a id="meter-solarlog-grid-meter"></a>

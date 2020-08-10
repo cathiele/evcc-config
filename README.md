@@ -20,6 +20,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - [SMA Sunny Island](#meter-sma-sunny-island)
 - [Solarlog (Grid Meter)](#meter-solarlog-grid-meter)
 - [Solarlog (PV Meter)](#meter-solarlog-pv-meter)
+- [Sonnenbatterie Eco (Grid Meter/HTTP)](#meter-sonnenbatterie-eco-grid-meter-http)
 - [vzlogger (HTTP)](#meter-vzlogger-http)
 - [vzlogger (Push Server/ Websocket)](#meter-vzlogger-push-server-websocket)
 - [vzlogger (split import/export channels)](#meter-vzlogger-split-import-export-channels)
@@ -245,6 +246,18 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
       address: 3502
       type: input
       decode: uint32s
+```
+
+<a id="meter-sonnenbatterie-eco-grid-meter-http"></a>
+#### Sonnenbatterie Eco (Grid Meter/HTTP)
+
+```yaml
+- type: default
+  power: # power reading
+    type: http # use http plugin
+    uri: http://192.168.1.75:8080/api/v1/status
+    jq: .GridFeedIn_W
+    scale: -1 # reverse direction
 ```
 
 <a id="meter-vzlogger-http"></a>

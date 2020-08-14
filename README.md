@@ -13,7 +13,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - [Kostal Inverter (Grid Meter)](#meter-kostal-inverter-grid-meter)
 - [Kostal Inverter (PV Meter)](#meter-kostal-inverter-pv-meter)
 - [Kostal Smart Energy Meter (Grid Meter)](#meter-kostal-smart-energy-meter-grid-meter)
-- [Modbus](#meter-modbus)
+- [Modbus (Ethernet)](#meter-modbus-ethernet)
 - [Modbus (RTU)](#meter-modbus-rtu)
 - [Multiple Grid Inverters combined (PV Meter)](#meter-multiple-grid-inverters-combined-pv-meter)
 - [SMA Home Manager 2.0 / SMA Energy Meter 30](#meter-sma-home-manager-2-0--sma-energy-meter-30)
@@ -21,6 +21,9 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - [Solarlog (Grid Meter)](#meter-solarlog-grid-meter)
 - [Solarlog (PV Meter)](#meter-solarlog-pv-meter)
 - [Sonnenbatterie Eco (Grid Meter/HTTP)](#meter-sonnenbatterie-eco-grid-meter-http)
+- [Tesla Powerwall (Battery meter)](#meter-tesla-powerwall-battery-meter)
+- [Tesla Powerwall (Grid meter)](#meter-tesla-powerwall-grid-meter)
+- [Tesla Powerwall (PV meter)](#meter-tesla-powerwall-pv-meter)
 - [vzlogger (HTTP)](#meter-vzlogger-http)
 - [vzlogger (Push Server/ Websocket)](#meter-vzlogger-push-server-websocket)
 - [vzlogger (split import/export channels)](#meter-vzlogger-split-import-export-channels)
@@ -153,8 +156,8 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   energy: Energy
 ```
 
-<a id="meter-modbus"></a>
-#### Modbus
+<a id="meter-modbus-ethernet"></a>
+#### Modbus (Ethernet)
 
 ```yaml
 - type: modbus
@@ -258,6 +261,33 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     uri: http://192.168.1.75:8080/api/v1/status
     jq: .GridFeedIn_W
     scale: -1 # reverse direction
+```
+
+<a id="meter-tesla-powerwall-battery-meter"></a>
+#### Tesla Powerwall (Battery meter)
+
+```yaml
+- type: tesla
+  uri: http://192.168.1.4/api/meters/aggregates
+  usage: battery # grid meter: `site`, pv: `solar`, battery: `battery`
+```
+
+<a id="meter-tesla-powerwall-grid-meter"></a>
+#### Tesla Powerwall (Grid meter)
+
+```yaml
+- type: tesla
+  uri: http://192.168.1.4/api/meters/aggregates
+  usage: site # grid meter: `site`, pv: `solar`, battery: `battery`
+```
+
+<a id="meter-tesla-powerwall-pv-meter"></a>
+#### Tesla Powerwall (PV meter)
+
+```yaml
+- type: tesla
+  uri: http://192.168.1.4/api/meters/aggregates
+  usage: solar # grid meter: `site`, pv: `solar`, battery: `battery`
 ```
 
 <a id="meter-vzlogger-http"></a>

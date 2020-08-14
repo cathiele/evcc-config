@@ -1,5 +1,5 @@
 type: modbus
-name: Modbus
+name: Modbus (Ethernet)
 sample: |
   model: sdm
   uri: rs485.fritz.box:23

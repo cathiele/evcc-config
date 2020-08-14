@@ -8,7 +8,7 @@ func init() {
 	template := registry.Template{
 		Class:  "meter",
 		Type:   "modbus",
-		Name:   "Modbus",
+		Name:   "Modbus (Ethernet)",
 		Sample: `model: sdm
 uri: rs485.fritz.box:23
 rtu: true # rs485 device connected using ethernet adapter

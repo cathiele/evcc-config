@@ -20,7 +20,9 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - [SMA Sunny Island](#meter-sma-sunny-island)
 - [Solarlog (Grid Meter)](#meter-solarlog-grid-meter)
 - [Solarlog (PV Meter)](#meter-solarlog-pv-meter)
-- [Sonnenbatterie Eco (Grid Meter/HTTP)](#meter-sonnenbatterie-eco-grid-meter-http)
+- [Sonnenbatterie Eco (Battery meter/ HTTP)](#meter-sonnenbatterie-eco-battery-meter-http)
+- [Sonnenbatterie Eco (Grid meter/ HTTP)](#meter-sonnenbatterie-eco-grid-meter-http)
+- [Sonnenbatterie Eco (PV meter/ HTTP)](#meter-sonnenbatterie-eco-pv-meter-http)
 - [Tesla Powerwall (Battery meter)](#meter-tesla-powerwall-battery-meter)
 - [Tesla Powerwall (Grid meter)](#meter-tesla-powerwall-grid-meter)
 - [Tesla Powerwall (PV meter)](#meter-tesla-powerwall-pv-meter)
@@ -251,8 +253,20 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
       decode: uint32s
 ```
 
+<a id="meter-sonnenbatterie-eco-battery-meter-http"></a>
+#### Sonnenbatterie Eco (Battery meter/ HTTP)
+
+```yaml
+- type: default
+  power: # power reading
+    type: http # use http plugin
+    uri: http://192.168.1.75:8080/api/v1/status
+    jq: .Pac_total_W
+    scale: -1 # reverse direction
+```
+
 <a id="meter-sonnenbatterie-eco-grid-meter-http"></a>
-#### Sonnenbatterie Eco (Grid Meter/HTTP)
+#### Sonnenbatterie Eco (Grid meter/ HTTP)
 
 ```yaml
 - type: default
@@ -261,6 +275,17 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     uri: http://192.168.1.75:8080/api/v1/status
     jq: .GridFeedIn_W
     scale: -1 # reverse direction
+```
+
+<a id="meter-sonnenbatterie-eco-pv-meter-http"></a>
+#### Sonnenbatterie Eco (PV meter/ HTTP)
+
+```yaml
+- type: default
+  power: # power reading
+    type: http # use http plugin
+    uri: http://192.168.1.75:8080/api/v1/status
+    jq: .Production_W
 ```
 
 <a id="meter-tesla-powerwall-battery-meter"></a>

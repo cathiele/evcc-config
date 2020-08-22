@@ -6,6 +6,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ## Meters
 
+- [Discovergy (Grid or PV meter/ HTTP)](#meter-discovergy-grid-or-pv-meter-http)
 - [E3DC (Battery Meter)](#meter-e3dc-battery-meter)
 - [E3DC (PV Meter)](#meter-e3dc-pv-meter)
 - [Generisch (MQTT)](#meter-generisch-mqtt)
@@ -64,6 +65,22 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ### Meters
 
+
+<a id="meter-discovergy-grid-or-pv-meter-http"></a>
+#### Discovergy (Grid or PV meter/ HTTP)
+
+```yaml
+- type: default
+  power: # power reading
+    type: http # use http plugin
+    auth:
+      type: basic
+      user: demo@discovergy.com # Discovergy user name
+      password: demo # password 
+    uri: https://api.discovergy.com/public/v1/last_reading?meterId=659a3da00324400da66cef81e1cbe3c5 # append meter id
+    jq: .values.power
+    scale: 0.001
+```
 
 <a id="meter-e3dc-battery-meter"></a>
 #### E3DC (Battery Meter)

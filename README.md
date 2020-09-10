@@ -664,9 +664,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - type: tesla
   title: Model S # display name for UI
   capacity: 90 # kWh
-  clientid: # client id
-  clientsecret: # client secret
-  email: # email
+  user: # email
   password: # password
   vin: WTSLA...
   cache: 5m # cache API response

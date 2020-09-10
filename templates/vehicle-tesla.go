@@ -11,9 +11,7 @@ func init() {
 		Name:   "Tesla",
 		Sample: `title: Model S # display name for UI
 capacity: 90 # kWh
-clientid: # client id
-clientsecret: # client secret
-email: # email
+user: # email
 password: # password
 vin: WTSLA...
 cache: 5m # cache API response`,

@@ -7,13 +7,13 @@ import (
 func init() {
 	template := registry.Template{
 		Class:  "vehicle",
-		Type:   "audi",
-		Name:   "Audi (eTron etc)",
-		Sample: `title: eTron # display name for UI
-capacity: 14 # kWh
+		Type:   "vw",
+		Name:   "VW (ID.3, ID.4, etc)",
+		Sample: `title: ID.3 # display name for UI
+capacity: 10 # kWh
 user: # user
 password: # password
-vin: WAUZZZ...
+vin: WVWZZZ...
 cache: 5m # cache API response`,
 	}
 

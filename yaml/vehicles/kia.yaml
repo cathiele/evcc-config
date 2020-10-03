@@ -1,0 +1,9 @@
+type: kia
+name: Kia (e-Niro, e-Soul, etc)
+sample: |
+  title: e-Niro # display name for UI
+  capacity: 64 # kWh
+  user: # user
+  password: # password
+  vin: WKIZZZ...
+  cache: 5m # cache API response

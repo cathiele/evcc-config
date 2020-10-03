@@ -1,0 +1,9 @@
+type: hyundai
+name: Hyundai (Kona, Ioniq)
+sample: |
+  title: Kona # display name for UI
+  capacity: 64 # kWh
+  user: # user
+  password: # password
+  vin: WHYZZZ...
+  cache: 5m # cache API response

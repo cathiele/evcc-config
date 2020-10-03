@@ -52,14 +52,17 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ## Vehicles
 
-- [Audi](#vehicle-audi)
+- [Audi (eTron etc)](#vehicle-audi-etron-etc)
 - [BMW (i3)](#vehicle-bmw-i3)
 - [Generisch](#vehicle-generisch)
 - [Generisch (Script)](#vehicle-generisch-script)
+- [Hyundai (Kona, Ioniq)](#vehicle-hyundai-kona-ioniq)
+- [Kia (e-Niro, e-Soul, etc)](#vehicle-kia-e-niro-e-soul-etc)
 - [Nissan (Leaf)](#vehicle-nissan-leaf)
 - [Porsche](#vehicle-porsche)
 - [Renault (Zoe)](#vehicle-renault-zoe)
 - [Tesla](#vehicle-tesla)
+- [VW (ID.3, ID.4, etc)](#vehicle-vw-id-3-id-4-etc)
 
 ## Details
 
@@ -564,13 +567,13 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ### Vehicles
 
 
-<a id="vehicle-audi"></a>
-#### Audi
+<a id="vehicle-audi-etron-etc"></a>
+#### Audi (eTron etc)
 
 ```yaml
 - type: audi
-  title: Q55 TFSIe # display name for UI
-  capacity: 10 # kWh
+  title: eTron # display name for UI
+  capacity: 14 # kWh
   user: # user
   password: # password
   vin: WAUZZZ...
@@ -615,6 +618,32 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     cmd: /bin/sh -c "echo 50" # actual command
     timeout: 3s # kill script after 3 seconds
   cache: 5m # cache duration
+```
+
+<a id="vehicle-hyundai-kona-ioniq"></a>
+#### Hyundai (Kona, Ioniq)
+
+```yaml
+- type: hyundai
+  title: Kona # display name for UI
+  capacity: 64 # kWh
+  user: # user
+  password: # password
+  vin: WHYZZZ...
+  cache: 5m # cache API response
+```
+
+<a id="vehicle-kia-e-niro-e-soul-etc"></a>
+#### Kia (e-Niro, e-Soul, etc)
+
+```yaml
+- type: kia
+  title: e-Niro # display name for UI
+  capacity: 64 # kWh
+  user: # user
+  password: # password
+  vin: WKIZZZ...
+  cache: 5m # cache API response
 ```
 
 <a id="vehicle-nissan-leaf"></a>
@@ -667,6 +696,19 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   user: # email
   password: # password
   vin: WTSLA...
+  cache: 5m # cache API response
+```
+
+<a id="vehicle-vw-id-3-id-4-etc"></a>
+#### VW (ID.3, ID.4, etc)
+
+```yaml
+- type: vw
+  title: ID.3 # display name for UI
+  capacity: 10 # kWh
+  user: # user
+  password: # password
+  vin: WVWZZZ...
   cache: 5m # cache API response
 ```
 

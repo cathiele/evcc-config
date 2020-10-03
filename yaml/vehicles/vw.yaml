@@ -1,0 +1,9 @@
+type: vw
+name: VW (ID.3, ID.4, etc)
+sample: |
+  title: ID.3 # display name for UI
+  capacity: 10 # kWh
+  user: # user
+  password: # password
+  vin: WVWZZZ...
+  cache: 5m # cache API response

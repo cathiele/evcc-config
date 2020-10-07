@@ -637,7 +637,6 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   capacity: 64 # kWh
   user: # user
   password: # password
-  vin: WHYZZZ...
   cache: 5m # cache API response
 ```
 
@@ -650,7 +649,6 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   capacity: 64 # kWh
   user: # user
   password: # password
-  vin: WKIZZZ...
   cache: 5m # cache API response
 ```
 

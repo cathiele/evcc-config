@@ -99,6 +99,14 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
       type: holding
       decode: int32
     scale: -1 # reverse direction
+  soc:
+    type: modbus
+    uri: e3dc.fritz.box:502
+    id: 1 # ModBus slave id
+    register: # manual register configuration
+      address: 40082
+      type: holding
+      decode: uint16
 ```
 
 <a id="meter-e3dc-pv-meter"></a>

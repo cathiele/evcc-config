@@ -13,7 +13,7 @@ func init() {
 capacity: 65 # kWh
 user: # user
 password: # password
-vin: WBMW...
+vin: WBMW... # optional
 cache: 5m # cache API response`,
 	}
 

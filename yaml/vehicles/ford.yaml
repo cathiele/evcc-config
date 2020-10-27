@@ -1,0 +1,9 @@
+type: ford
+name: Ford (Kuga, Mustang, etc)
+sample: |
+  title: Kuga # display name for UI
+  capacity: 10 # kWh
+  user: # user
+  password: # password
+  vin: WF0FXX... # optional
+  cache: 5m # cache API response

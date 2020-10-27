@@ -5,5 +5,5 @@ sample: |
   capacity: 14 # kWh
   user: # user
   password: # password
-  vin: WAUZZZ...
+  vin: WAUZZZ... # optional
   cache: 5m # cache API response

@@ -1,9 +1,9 @@
 type: vw
-name: VW (ID.3, ID.4, etc)
+name: VW (eUp, ID.3, ID.4, etc)
 sample: |
   title: ID.3 # display name for UI
   capacity: 10 # kWh
   user: # user
   password: # password
-  vin: WVWZZZ...
+  vin: WVWZZZ... # optional
   cache: 5m # cache API response

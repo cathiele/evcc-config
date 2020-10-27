@@ -54,6 +54,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 - [Audi (eTron etc)](#vehicle-audi-etron-etc)
 - [BMW (i3)](#vehicle-bmw-i3)
+- [Ford (Kuga, Mustang, etc)](#vehicle-ford-kuga-mustang-etc)
 - [Generisch](#vehicle-generisch)
 - [Generisch (Script)](#vehicle-generisch-script)
 - [Hyundai (Kona, Ioniq)](#vehicle-hyundai-kona-ioniq)
@@ -62,7 +63,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - [Porsche](#vehicle-porsche)
 - [Renault (Zoe)](#vehicle-renault-zoe)
 - [Tesla](#vehicle-tesla)
-- [VW (ID.3, ID.4, etc)](#vehicle-vw-id-3-id-4-etc)
+- [VW (eUp, ID.3, ID.4, etc)](#vehicle-vw-eup-id-3-id-4-etc)
 
 ## Details
 
@@ -584,7 +585,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   capacity: 14 # kWh
   user: # user
   password: # password
-  vin: WAUZZZ...
+  vin: WAUZZZ... # optional
   cache: 5m # cache API response
 ```
 
@@ -597,7 +598,20 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   capacity: 65 # kWh
   user: # user
   password: # password
-  vin: WBMW...
+  vin: WBMW... # optional
+  cache: 5m # cache API response
+```
+
+<a id="vehicle-ford-kuga-mustang-etc"></a>
+#### Ford (Kuga, Mustang, etc)
+
+```yaml
+- type: ford
+  title: Kuga # display name for UI
+  capacity: 10 # kWh
+  user: # user
+  password: # password
+  vin: WF0FXX... # optional
   cache: 5m # cache API response
 ```
 
@@ -687,8 +701,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   capacity: 60 # kWh
   user: # user
   password: # password
-  region: de_DE # gigya region
-  vin: WREN...
+  vin: WREN... # optional
   cache: 5m # cache API response
 ```
 
@@ -705,8 +718,8 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   cache: 5m # cache API response
 ```
 
-<a id="vehicle-vw-id-3-id-4-etc"></a>
-#### VW (ID.3, ID.4, etc)
+<a id="vehicle-vw-eup-id-3-id-4-etc"></a>
+#### VW (eUp, ID.3, ID.4, etc)
 
 ```yaml
 - type: vw
@@ -714,7 +727,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   capacity: 10 # kWh
   user: # user
   password: # password
-  vin: WVWZZZ...
+  vin: WVWZZZ... # optional
   cache: 5m # cache API response
 ```
 

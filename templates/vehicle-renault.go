@@ -13,8 +13,7 @@ func init() {
 capacity: 60 # kWh
 user: # user
 password: # password
-region: de_DE # gigya region
-vin: WREN...
+vin: WREN... # optional
 cache: 5m # cache API response`,
 	}
 

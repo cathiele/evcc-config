@@ -1,5 +1,5 @@
 type: default
-name: Sonnenbatterie Eco (Battery meter/ HTTP)
+name: Sonnenbatterie Eco (Battery/ HTTP)
 sample: |
   power: # power reading
     type: http # use http plugin

@@ -1,5 +1,5 @@
 type: tesla
-name: Tesla Powerwall (Battery meter)
+name: Tesla Powerwall (Battery)
 sample: |
   uri: http://192.168.1.4/api/meters/aggregates
   usage: battery # grid meter: `site`, pv: `solar`, battery: `battery`

@@ -1,5 +1,5 @@
 type: default
-name: E3DC (Battery Meter)
+name: E3DC (Battery)
 sample: |
   power:
     type: modbus

@@ -7,7 +7,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ## Meters
 
 - [Discovergy (Grid or PV meter/ HTTP)](#meter-discovergy-grid-or-pv-meter-http)
-- [E3DC (Battery Meter)](#meter-e3dc-battery-meter)
+- [E3DC (Battery)](#meter-e3dc-battery)
 - [E3DC (PV Meter)](#meter-e3dc-pv-meter)
 - [Generisch (MQTT)](#meter-generisch-mqtt)
 - [Generisch (Script)](#meter-generisch-script)
@@ -17,14 +17,16 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - [Modbus (Ethernet)](#meter-modbus-ethernet)
 - [Modbus (RTU)](#meter-modbus-rtu)
 - [Multiple Grid Inverters combined (PV Meter)](#meter-multiple-grid-inverters-combined-pv-meter)
-- [SMA Home Manager 2.0 / SMA Energy Meter 30](#meter-sma-home-manager-2-0--sma-energy-meter-30)
-- [SMA Sunny Island](#meter-sma-sunny-island)
+- [SMA Sunny Boy Storage (Battery)](#meter-sma-sunny-boy-storage-battery)
+- [SMA Sunny Home Manager 2.0 / SMA Energy Meter 30](#meter-sma-sunny-home-manager-2-0--sma-energy-meter-30)
+- [SMA Sunny Island (Battery)](#meter-sma-sunny-island-battery)
+- [SMA SunnyBoy / TriPower / other SunSpec PV-inverters (PV Meter)](#meter-sma-sunnyboy--tripower--other-sunspec-pv-inverters-pv-meter)
 - [Solarlog (Grid Meter)](#meter-solarlog-grid-meter)
 - [Solarlog (PV Meter)](#meter-solarlog-pv-meter)
-- [Sonnenbatterie Eco (Battery meter/ HTTP)](#meter-sonnenbatterie-eco-battery-meter-http)
+- [Sonnenbatterie Eco (Battery/ HTTP)](#meter-sonnenbatterie-eco-battery-http)
 - [Sonnenbatterie Eco (Grid meter/ HTTP)](#meter-sonnenbatterie-eco-grid-meter-http)
 - [Sonnenbatterie Eco (PV meter/ HTTP)](#meter-sonnenbatterie-eco-pv-meter-http)
-- [Tesla Powerwall (Battery meter)](#meter-tesla-powerwall-battery-meter)
+- [Tesla Powerwall (Battery)](#meter-tesla-powerwall-battery)
 - [Tesla Powerwall (Grid meter)](#meter-tesla-powerwall-grid-meter)
 - [Tesla Powerwall (PV meter)](#meter-tesla-powerwall-pv-meter)
 - [vzlogger (HTTP)](#meter-vzlogger-http)
@@ -86,8 +88,8 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     scale: 0.001
 ```
 
-<a id="meter-e3dc-battery-meter"></a>
-#### E3DC (Battery Meter)
+<a id="meter-e3dc-battery"></a>
+#### E3DC (Battery)
 
 ```yaml
 - type: default
@@ -209,8 +211,8 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   uri: rs485.fritz.box:23
   rtu: true # rs485 device connected using ethernet adapter
   id: 2
-  power: Power # default values, optionally override
-  energy: Sum # default values, optionally override
+  power: Power # default value, optionally override
+  energy: Sum # energy value (Zählerstand)
 ```
 
 <a id="meter-multiple-grid-inverters-combined-pv-meter"></a>
@@ -232,16 +234,28 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
       id: 71 # Configured Modbus Device ID 
 ```
 
-<a id="meter-sma-home-manager-2-0--sma-energy-meter-30"></a>
-#### SMA Home Manager 2.0 / SMA Energy Meter 30
+<a id="meter-sma-sunny-boy-storage-battery"></a>
+#### SMA Sunny Boy Storage (Battery)
+
+```yaml
+- type: modbus
+  uri: 192.168.178.91:502 # 
+  id: 126 # ModBus slave id
+  model: sma-sunspec
+  power: Power # default value, optionally override
+  soc: ChargeState # battery soc (Ladezustand)
+```
+
+<a id="meter-sma-sunny-home-manager-2-0--sma-energy-meter-30"></a>
+#### SMA Sunny Home Manager 2.0 / SMA Energy Meter 30
 
 ```yaml
 - type: sma
   serial: 1234567890 # Serial number of the device
 ```
 
-<a id="meter-sma-sunny-island"></a>
-#### SMA Sunny Island
+<a id="meter-sma-sunny-island-battery"></a>
+#### SMA Sunny Island (Battery)
 
 ```yaml
 - type: modbus
@@ -249,7 +263,19 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   uri: 192.168.1.4:502
   id: 126
   power: Power # default values, optionally override
-  energy: Sum # default values, optionally override
+  soc: ChargeState # battery soc (Ladezustand)
+```
+
+<a id="meter-sma-sunnyboy--tripower--other-sunspec-pv-inverters-pv-meter"></a>
+#### SMA SunnyBoy / TriPower / other SunSpec PV-inverters (PV Meter)
+
+```yaml
+- type: modbus
+  uri: 192.168.178.91:502 # 
+  id: 126 # ModBus slave id
+  model: sma-sunspec
+  power: Power # default value, optionally override
+  energy: Sum # energy value (Zählerstand)
 ```
 
 <a id="meter-solarlog-grid-meter"></a>
@@ -282,8 +308,8 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
       decode: uint32s
 ```
 
-<a id="meter-sonnenbatterie-eco-battery-meter-http"></a>
-#### Sonnenbatterie Eco (Battery meter/ HTTP)
+<a id="meter-sonnenbatterie-eco-battery-http"></a>
+#### Sonnenbatterie Eco (Battery/ HTTP)
 
 ```yaml
 - type: default
@@ -317,8 +343,8 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     jq: .Production_W
 ```
 
-<a id="meter-tesla-powerwall-battery-meter"></a>
-#### Tesla Powerwall (Battery meter)
+<a id="meter-tesla-powerwall-battery"></a>
+#### Tesla Powerwall (Battery)
 
 ```yaml
 - type: tesla

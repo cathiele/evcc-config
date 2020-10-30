@@ -1,4 +1,4 @@
 type: sma
-name: SMA Home Manager 2.0 / SMA Energy Meter 30
+name: SMA Sunny Home Manager 2.0 / SMA Energy Meter 30
 sample: |
   serial: 1234567890 # Serial number of the device

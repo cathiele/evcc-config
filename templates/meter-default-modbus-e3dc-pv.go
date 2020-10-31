@@ -16,8 +16,7 @@ func init() {
   register: # manual register configuration
     address: 40067 # (40068 - 1) "Photovoltaikleistung in Watt"
     type: holding
-    decode: int32s
-  scale: -1 # reverse sign`,
+    decode: int32s`,
 	}
 
 	registry.Add(template)

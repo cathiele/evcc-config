@@ -6,9 +6,9 @@ sample: |
     uri: e3dc.fritz.box:502
     id: 1 # ModBus slave id
     register: # manual register configuration
-      address: 40070
+      address: 40069
       type: holding
-      decode: int32
+      decode: int32s
     scale: -1 # reverse direction
   soc:
     type: modbus

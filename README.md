@@ -8,6 +8,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 - [Discovergy (Grid or PV meter/ HTTP)](#meter-discovergy-grid-or-pv-meter-http)
 - [E3DC (Battery)](#meter-e3dc-battery)
+- [E3DC (Grid Meter)](#meter-e3dc-grid-meter)
 - [E3DC (PV Meter)](#meter-e3dc-pv-meter)
 - [Generisch (MQTT)](#meter-generisch-mqtt)
 - [Generisch (Script)](#meter-generisch-script)
@@ -98,9 +99,9 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     uri: e3dc.fritz.box:502
     id: 1 # ModBus slave id
     register: # manual register configuration
-      address: 40070
+      address: 40069
       type: holding
-      decode: int32
+      decode: int32s
     scale: -1 # reverse direction
   soc:
     type: modbus
@@ -110,6 +111,21 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
       address: 40082
       type: holding
       decode: uint16
+```
+
+<a id="meter-e3dc-grid-meter"></a>
+#### E3DC (Grid Meter)
+
+```yaml
+- type: default
+  power:
+    type: modbus
+    uri: e3dc.fritz.box:502
+    id: 1 # ModBus slave id
+    register: # manual register configuration
+      address: 40073
+      type: holding
+      decode: int32s
 ```
 
 <a id="meter-e3dc-pv-meter"></a>
@@ -125,7 +141,6 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
       address: 40067 # (40068 - 1) "Photovoltaikleistung in Watt"
       type: holding
       decode: int32s
-    scale: -1 # reverse sign
 ```
 
 <a id="meter-generisch-mqtt"></a>
